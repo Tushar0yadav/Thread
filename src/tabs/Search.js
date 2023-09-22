@@ -16,15 +16,23 @@ const Search = () => {
           alignSelf: "center",
           marginTop: 20,
           borderRadius: 10,
-          flexDirection:'row', 
-          paddingLeft:15,
+          flexDirection: "row",
+          paddingLeft: 15,
         }}
       >
         <Image
-        source={require('../images/search.png')}
-        style={{width: 20, height: 20, tintColor:'#9e9e9e', marginTop:10}}
+          source={require("../images/search.png")}
+          style={{ width: 20, height: 20, tintColor: "#9e9e9e", marginTop: 10 }}
         />
-        <Text style={{color:'#9e9e9e', fontSize:16, marginLeft:10, fontWeight:'500', marginTop:10}}>
+        <Text
+          style={{
+            color: "#9e9e9e",
+            fontSize: 16,
+            marginLeft: 10,
+            fontWeight: "500",
+            marginTop: 10,
+          }}
+        >
           Search
         </Text>
       </View>

@@ -8,9 +8,11 @@ import {
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 const Account = () => {
   const [tab, setTab] = useState(0);
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View
@@ -33,10 +35,16 @@ const Account = () => {
             source={require("../images/instagram.png")}
             style={{ width: 24, height: 24 }}
           />
-          <Image
-            source={require("../images/menu.png")}
-            style={{ width: 24, height: 24, marginLeft: 20 }}
-          />
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Benu");
+            }}
+          >
+            <Image
+              source={require("../images/menu.png")}
+              style={{ width: 24, height: 24, marginLeft: 20 }}
+            />
+          </TouchableOpacity>
         </View>
       </View>
       <View

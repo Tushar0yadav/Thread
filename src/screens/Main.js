@@ -9,6 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const Main = () => {
   const [selectedTab, setSelectedTab] = useState(0);
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={{ flex: 1 }}>
       {selectedTab == 0 ? (
@@ -29,7 +30,7 @@ const Main = () => {
           justifyContent: "space-evenly",
           flexDirection: "row",
           alignItems: "center",
-          backgroundColor: 'white'
+          backgroundColor: "white",
         }}
       >
         <TouchableOpacity
@@ -82,8 +83,9 @@ const Main = () => {
             height: "100%",
             justifyContent: "center",
             alignItems: "center",
-          }}onPress={() => {
-            navigation.navigate("NewThread")
+          }}
+          onPress={() => {
+            navigation.navigate("NewThread");
           }}
         >
           <Image
