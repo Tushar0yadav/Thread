@@ -11,113 +11,46 @@ const Notifications = () => {
         Activity
       </Text>
       <View>
-        <ScrollView horizontal style={{ marginTop: 20 }}>
-          <TouchableOpacity
-            style={{
-              width: 100,
-              height: 40,
-              borderWidth: 1,
-              marginLeft: 20,
-              borderRadius: 10,
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: selectedTab == 0 ? "black" : "transparent",
-            }}
-            onpress={() => {
-              setSelectedTab(0);
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 16,
-                fontWeight: "600",
-                color: selectedTab == 0 ? "white" : "black",
-              }}
-            >
-              ALL
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              width: 100,
-              height: 40,
-              borderWidth: 1,
-              marginLeft: 20,
-              borderRadius: 10,
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: selectedTab == 1 ? "black" : "transparent",
-            }}
-            onpress={() => {
-              setSelectedTab(1);
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 16,
-                fontWeight: "600",
-                color: selectedTab == 1 ? "white" : "black",
-              }}
-            >
-              Replieds
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              width: 100,
-              height: 40,
-              borderWidth: 1,
-              marginLeft: 20,
-              borderRadius: 10,
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: selectedTab == 2 ? "black" : "transparent",
-            }}
-            onpress={() => {
-              setSelectedTab(2);
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 16,
-                fontWeight: "600",
-                color: selectedTab == 2 ? "white" : "black",
-              }}
-            >
-              Mentions
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              width: 100,
-              height: 40,
-              borderWidth: 1,
-              marginLeft: 20,
-              borderRadius: 10,
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: selectedTab == 3 ? "black" : "transparent",
-            }}
-            onpress={() => {
-              setSelectedTab(3);
-            }}
-          >
-            <Text
-              style={{
-                fontSize: 16,
-                fontWeight: "600",
-                color: selectedTab == 3 ? "white" : "black",
-              }}
-            >
-              Verified
-            </Text>
-          </TouchableOpacity>
-        </ScrollView>
+        <View style={{ marginTop: 20 }}>
+          <FlatList
+            data={["All", "Replieds", "Mentions", "Verified"]}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            renderItem={({ item, index }) => (
+              <TouchableOpacity
+                style={{
+                  width: 100,
+                  height: 40,
+                  borderWidth: 1,
+                  marginLeft: 20,
+                  borderRadius: 10,
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor:
+                    selectedTab == index ? "black" : "transparent",
+                }}
+                onPress={() => {
+                  setSelectedTab(index);
+                }}
+              >
+                <Text
+                  style={{
+                    fontSize: 16,
+                    fontWeight: "600",
+                    color: selectedTab == index ? "white" : "black",
+                  }}
+                >
+                  {item}
+                </Text>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
       </View>
 
       <FlatList
         contentContainerStyle={{ marginTop: 20 }}
-        data={[1, 1, 1, 1, 1, 1, 1]}
+        data={[1, 1, 1, 1, 1, 1, 1, 1, 1]}
         renderItem={({ item, index }) => {
           return (
             <View
